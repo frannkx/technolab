@@ -1,1 +1,1 @@
-/*Querys Sambil*/
+/*Querys para del Datawarehouse de Sambil*/
