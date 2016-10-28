@@ -827,3 +827,27 @@ FROM
                       AND (T1.RPSFX) = T2.ID_SUFIJO)
     AND T1.RPAN8 = T2.ABAN8
 )
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------- HECHO --------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW HECHO AS 
+  (
+SELECT T1.ID_CUENTA_CXC ID_CUENTA,
+              T1.COMPAÑIA_MC COMPAÑIA, 
+              T1.UNIDAD_NEGOCIO_MC UNIDAD_NEGOCIO,
+              T1.AÑO_FISCAL_MC AÑO_FISCAL,
+              T1.ID_CLIENTE_MC ID_CLIENTE, 
+              T1.IMPORTE_BRUTO,
+              T1.IMPORTE_PENDIENTE,
+              T1.MONTO_APERTURA,
+              T1.MONTO_COBRO,
+              T1.MONTO_AMORTIZACION,
+              T1.MONTO_DESCUENTO,
+              T1.ID_CONTRATO_MC ID_CONTRATO,
+              T2.ID_DIRECCION_UN ID_DIRECCION
+FROM MOVIMIENTOS_CONTABLES T1,
+UNIDAD_NEGOCIO T2
+WHERE T1.UNIDAD_NEGOCIO_MC = T2.UNIDAD_NEGOCIO
+)
